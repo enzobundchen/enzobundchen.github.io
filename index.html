@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enzo Bündchen | Web design, desenvolvimento e sistemas de engenharia</title>
+  <meta name="description" content="Portfólio de Enzo de Souza Bündchen, web designer e Analista de Sistemas de Engenharia. Criador da Base da Pesca e do site da Feirinha Familiar de Araranguá.">
+  <meta name="author" content="Enzo de Souza Bündchen">
+  <meta name="theme-color" content="#0A0A0B">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Enzo Bündchen | Web design e sistemas de engenharia">
+  <meta property="og:description" content="Web design, desenvolvimento e sistemas de engenharia: sites reais, PLM, CAD e automação.">
+  <meta property="og:image" content="assets/projetos/pesca-inicio.webp">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0B'/%3E%3Cpath d='M7 8h9v3H10.500v3.500H15v3h-4.500V21H16v3H7zM18 8h4l3 16h-3.200l-.5-3H19v-3h1.800L20 12z' fill='%23E3AA3E'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <div class="progress" aria-hidden="true"><i id="progress"></i></div>
+
+  <header class="top">
+    <div class="wrap top__bar">
+      <a class="brand" href="#perfil">Enzo Bündchen</a>
+      <button class="menu" id="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav id="nav" aria-label="Seções">
+        <a href="#projetos">Projetos</a>
+        <a href="#fluxo">Engenharia</a>
+        <a href="#trajetoria">Trajetória</a>
+        <a href="#competencias">Competências</a>
+        <a class="nav__cta" href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="perfil" aria-labelledby="h-perfil">
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <p class="status">Aberto a oportunidades</p>
+          <h1 id="h-perfil">Enzo de Souza<br>Bündchen</h1>
+          <p class="lead">Crio sites responsivos, do layout à publicação, e uso programação para otimizar o trabalho de projetistas de SolidEdge.</p>
+          <p class="sub">Key User de Teamcenter e Solid Edge. Estudando Ciência da Computação e WebDesign.</p>
+          <div class="cta">
+            <a class="btn btn--pri" href="#projetos">Ver projetos</a>
+            <a class="btn" href="#contato">Entrar em contato</a>
+          </div>
+        </div>
+
+        <figure class="sheet">
+          <img src="assets/foto-enzo.jpg" width="720" height="900" alt="Retrato de Enzo, de barba e camisa preta" fetchpriority="high">
+        S</figure>
+      </div>
+    </section>
+
+    <section class="band" id="projetos" aria-labelledby="h-proj">
+      <div class="wrap">
+        <header class="head">
+          <p class="kicker">01 / Projetos</p>
+          <h2 id="h-proj">Sites reais, do layout ao banco de dados</h2>
+        </header>
+
+        <article class="case reveal" aria-labelledby="c-pesca">
+          <div class="case__media" data-gallery>
+            <div class="browser">
+              <div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>basedapesca.com.br</span></div>
+              <img data-main src="assets/projetos/pesca-inicio.webp" width="2160" height="1350" loading="lazy" alt="Página inicial da Base da Pesca, com um mapa ilustrado do Brasil">
+            </div>
+            <img class="phone" src="assets/projetos/pesca-mobile.webp" width="780" height="1688" loading="lazy" alt="Base da Pesca aberta no celular">
+            <div class="thumbs" role="group" aria-label="Telas da Base da Pesca">
+              <button type="button" aria-pressed="true" data-src="assets/projetos/pesca-inicio.webp" data-alt="Página inicial da Base da Pesca, com um mapa ilustrado do Brasil">Início</button>
+              <button type="button" aria-pressed="false" data-src="assets/projetos/pesca-enciclopedia.webp" data-alt="Enciclopédia de espécies da Base da Pesca">Enciclopédia</button>
+              <button type="button" aria-pressed="false" data-src="assets/projetos/pesca-mapa.webp" data-alt="Mapa colaborativo de pontos de pesca sobre imagem de satélite">Mapa</button>
+              <button type="button" aria-pressed="false" data-src="assets/projetos/pesca-comunidade.webp" data-alt="Página da comunidade da Base da Pesca">Comunidade</button>
+            </div>
+          </div>
+
+          <div class="case__body">
+            <p class="badge badge--on">No ar</p>
+            <h3 id="c-pesca">Base da Pesca</h3>
+            <p class="case__lead">Plataforma colaborativa de pesca esportiva: enciclopédia de espécies, mapa de pontos, comunidade e diário de capturas em um só lugar.</p>
+            <ul class="ticks">
+              <li>Login, upload de imagens e perfis de pescador</li>
+              <li>Mapa com filtros por estado, cidade e espécie</li>
+            </ul>
+            <div class="stack" aria-label="Tecnologias"><span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>Prisma</span><span>NextAuth</span><span>Leaflet</span><span>Tailwind</span></div>
+            <a class="link" href="https://basedapesca.com.br" target="_blank" rel="noopener">Visitar o site <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="case case--flip reveal" aria-labelledby="c-feira">
+          <div class="case__media" data-gallery>
+            <div class="browser">
+              <div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>Feirinha Familiar de Araranguá</span></div>
+              <img data-main src="assets/projetos/feira-inicio.webp" width="2160" height="1350" loading="lazy" alt="Página inicial da Feirinha Familiar de Araranguá, com a data da próxima feira">
+            </div>
+            <img class="phone" src="assets/projetos/feira-mobile.webp" width="780" height="1688" loading="lazy" alt="Site da Feirinha Familiar aberto no celular">
+            <div class="thumbs" role="group" aria-label="Telas da Feirinha Familiar">
+              <button type="button" aria-pressed="true" data-src="assets/projetos/feira-inicio.webp" data-alt="Página inicial da Feirinha Familiar de Araranguá, com a data da próxima feira">Início</button>
+              <button type="button" aria-pressed="false" data-src="assets/projetos/feira-produtos.webp" data-alt="Seção de produtos da feira, organizada por tipo de banca">Produtos</button>
+              <button type="button" aria-pressed="false" data-src="assets/projetos/feira-feirantes.webp" data-alt="Seção com os feirantes e suas bancas">Feirantes</button>
+            </div>
+          </div>
+
+          <div class="case__body">
+            <p class="badge">Pronto, aguardando publicação</p>
+            <h3 id="c-feira">Feirinha Familiar de Araranguá</h3>
+            <p class="case__lead">Site da feira da Associação Agro Artesanal Empreendedora de Araranguá. Mostra quando ir, o que encontrar e quem produz, direto do celular de quem vai comprar.</p>
+            <ul class="ticks">
+              <li>Data da próxima feira calculada automaticamente</li>
+              <li>Identidade visual inspirada nas barracas da feira</li>
+            </ul>
+            <div class="stack" aria-label="Tecnologias"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsivo</span><span>SEO</span></div>
+          </div>
+        </article>
+
+        <h3 class="sub-head">Em desenvolvimento</h3>
+        <ol class="list">
+          <li class="reveal"><span class="pos">03</span><div><h4>Contador para Jogos de Carta</h4><p>Contador de pontos para jogos de carta, inspirado no Truco Counter.</p></div><div class="stack"><span>Android</span></div><span class="state">Em publicação na Play Store</span></li>
+          <li class="reveal"><span class="pos">04</span><div><h4>MyPet</h4><p>Cuidados de vários pets em um só lugar: calendário de petshop, veterinário, remédios e comida. Recebe os dados do sensor de nível de água e avisa quando precisa encher.</p></div><div class="stack"><span>Android</span><span>IoT</span></div><span class="state">Em criação</span></li>
+          <li class="reveal"><span class="pos">05</span><div><h4>Estacionamento Inteligente</h4><p>Tela web com as vagas de cada estacionamento, ligada em tempo real aos sensores que indicam se a vaga está ocupada.</p></div><div class="stack"><span>Web</span><span>IoT</span></div><span class="state">Projeto</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="fluxo" aria-labelledby="h-fluxo">
+      <div class="wrap">
+        <header class="head">
+          <p class="kicker">02 / Engenharia</p>
+          <h2 id="h-fluxo">Do desenho ao ERP</h2>
+          <p>Um desenho passa por algumas etapas até chegar ao ERP. Escolha uma etapa para ver onde eu atuo.</p>
+        </header>
+        <div class="flow" id="flow" role="group" aria-label="Etapas do fluxo">
+          <button type="button" aria-pressed="true" data-i="0"><small>CAD</small>Solid Edge</button>
+          <button type="button" aria-pressed="false" data-i="1"><small>Integração</small>SEEC</button>
+          <button type="button" aria-pressed="false" data-i="2"><small>PLM</small>Teamcenter</button>
+          <button type="button" aria-pressed="false" data-i="3"><small>Integração</small>T4EA</button>
+          <button type="button" aria-pressed="false" data-i="4"><small>ERP</small>Focco</button>
+        </div>
+        <div class="detail" id="flowdetail" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="band" id="trajetoria" aria-labelledby="h-traj">
+      <div class="wrap career">
+        <div>
+          <header class="head">
+            <p class="kicker">03 / Trajetória</p>
+            <h2 id="h-traj">Trajetória</h2>
+          </header>
+          <ol class="tl">
+            <li class="reveal is-now">
+              <span class="y">Jun 2026 até hoje</span>
+              <h3>Web Designer</h3>
+              <p class="o">Autônomo</p>
+              <ul class="ticks">
+                <li>Desenvolvimento web</li>
+              </ul>
+            </li>
+            <li class="reveal is-now">
+              <span class="y">Out 2025 até hoje</span>
+              <h3>Analista de Sistemas de Engenharia</h3>
+              <p class="o">Industrial Pagé, Engenharia de Projetos</p>
+              <ul class="ticks">
+                <li>Key User de Teamcenter e Solid Edge, com administração do ambiente</li>
+                <li>Desenvolvimento de workflows e gerenciamento de BOMs</li>
+                <li>Macros e APIs para o Solid Edge</li>
+                <li>Monitoramento de integrações, análise e resolução de incidentes</li>
+                <li>Cadastro de itens e estruturas, validações, configurador de produto e PDM no Focco</li>
+              </ul>
+            </li>
+            <li class="reveal">
+              <span class="y">Jan 2024 a out 2025</span>
+              <h3>Técnico de aplicações</h3>
+              <p class="o">Industrial Pagé, Engenharia de Projetos</p>
+              <ul class="ticks">
+                <li>Análise técnica de projetos em Solid Edge, Teamcenter e Focco</li>
+                <li>Correção de erros no cadastro de itens do Focco</li>
+              </ul>
+            </li>
+            <li class="reveal">
+              <span class="y">Fev a dez 2023</span>
+              <h3>Jovem Aprendiz</h3>
+              <p class="o">Industrial Pagé, Engenharia de Projetos</p>
+              <ul class="ticks">
+                <li>Digitalização e organização de documentos</li>
+                <li>Detalhamento no Solid Edge</li>
+              </ul>
+            </li>
+            <li class="reveal">
+              <span class="y">2022</span>
+              <h3>Recenseador</h3>
+              <p class="o">IBGE</p>
+              <ul class="ticks">
+                <li>Coleta de dados em campo e atendimento a públicos diversos</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+
+        <aside class="side">
+          <h3>Formação</h3>
+          <ul>
+            <li>Bacharelado em Ciência da Computação<small>Unesc, 2024 a 2027, em andamento</small></li>
+            <li>Técnico em Eletromecânica<small>IFSC, Instituto Federal de Santa Catarina</small></li>
+          </ul>
+          <h3>Cursos e treinamentos</h3>
+          <ul>
+            <li>Administração do Teamcenter<small>PLMX</small></li>
+            <li>Indústria Digital<small>PLMX, TSE e APS3</small></li>
+            <li>Inteligência Artificial na Indústria<small>Udemy</small></li>
+            <li>Web design<small>Udemy, em andamento</small></li>
+            <li>Unesc Challenge<small>Empreendedorismo e inovação</small></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="competencias" aria-labelledby="h-comp">
+      <div class="wrap">
+        <header class="head">
+          <p class="kicker">04 / Competências</p>
+          <h2 id="h-comp">O que uso e onde uso</h2>
+        </header>
+        <div class="skills">
+          <div class="reveal">
+            <h3>Web design</h3>
+            <dl>
+              <div><dt>Figma</dt><dd>Telas e protótipos</dd></div>
+              <div><dt>Next.js, React e TypeScript</dt><dd>Aplicações web com tipagem estrita</dd></div>
+              <div><dt>PostgreSQL e Prisma</dt><dd>Modelagem e acesso a dados</dd></div>
+              <div><dt>HTML, CSS e JavaScript</dt><dd>Sites responsivos</dd></div>
+              <div><dt>React Native e Expo</dt><dd>Apps de celular, como o MyPet</dd></div>
+            </dl>
+          </div>
+          <div class="reveal">
+            <h3>PLM e CAD</h3>
+            <dl>
+              <div><dt>Teamcenter</dt><dd>Administração, workflows, BOMs e suporte</dd></div>
+              <div><dt>Solid Edge 2025</dt><dd>Suporte, templates, propriedades e API</dd></div>
+              <div><dt>Focco ERP</dt><dd>Itens, estruturas, validações, configurador e PDM</dd></div>
+            </dl>
+          </div>
+          <div class="reveal">
+            <h3>Automação</h3>
+            <dl>
+              <div><dt>C# e .NET Framework</dt><dd>Executáveis que trocam folhas de fundo e preenchem propriedades via COM</dd></div>
+              <div><dt>Power Automate</dt><dd>Fluxos de trabalho do dia a dia</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="techs">
+        <ul class="strip" data-dir="1" aria-label="Sistemas e ferramentas">
+          <li><img src="assets/logos/teamcenter.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>Teamcenter</span></li>
+          <li><img src="assets/logos/solid-edge.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>Solid Edge</span></li>
+          <li><img src="assets/logos/focco-erp.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>Focco ERP</span></li>
+          <li><img src="assets/logos/excel.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>Excel</span></li>
+          <li><img src="assets/logos/power-automate.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>Power Automate</span></li>
+          <li><img src="assets/logos/visual-studio.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>Visual Studio</span></li>
+          <li><img src="assets/logos/vs-code.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>VS Code</span></li>
+          <li><img src="assets/logos/github.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>GitHub</span></li>
+          <li><img src="assets/logos/figma.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>Figma</span></li>
+          <li><img src="assets/logos/claude.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>Claude</span></li>
+          <li><img src="assets/logos/google-play-console.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>Google Play Console</span></li>
+        </ul>
+        <ul class="strip" data-dir="-1" aria-label="Linguagens e frameworks">
+          <li><img src="assets/logos/html5.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>HTML5</span></li>
+          <li><img src="assets/logos/css3.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>CSS3</span></li>
+          <li><img src="assets/logos/javascript.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>JavaScript</span></li>
+          <li><img src="assets/logos/typescript.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>TypeScript</span></li>
+          <li><img src="assets/logos/react.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>React</span></li>
+          <li><img src="assets/logos/next-js.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>Next.js</span></li>
+          <li><img src="assets/logos/csharp.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>C#</span></li>
+          <li><img src="assets/logos/c.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>C</span></li>
+          <li><img src="assets/logos/java.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>Java</span></li>
+          <li><img src="assets/logos/expo-go.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>Expo Go</span></li>
+          <li><img src="assets/logos/postgresql.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>PostgreSQL</span></li>
+          <li><img src="assets/logos/eclipse.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>Eclipse</span></li>
+          <li><img src="assets/logos/python.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>Python</span></li>
+          <li><img src="assets/logos/opencv.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>OpenCV</span></li>
+          <li><img src="assets/logos/mediapipe.png" alt="" width="72" height="72" loading="lazy" draggable="false"><span>MediaPipe</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="band" id="contato" aria-labelledby="h-cont">
+      <div class="wrap contact">
+        <div>
+          <p class="kicker">05 / Contato</p>
+          <h2 id="h-cont">Vamos conversar</h2>
+          <p class="contact__lead">Se você precisa de um site ou um projeto, fale comigo.</p>
+          <a class="btn btn--pri" href="mailto:enzosb2004@gmail.com">Enviar e-mail</a>
+          <h3>O que busco</h3>
+          <ul class="ticks">
+            <li>Crescer em web design com novos projetos</li>
+            <li>Aprofundar a especialização em Teamcenter</li>
+            <li>Desenvolver habilidades em Java e C#</li>
+            <li>Automatizar processos de engenharia</li>
+          </ul>
+        </div>
+        <ul class="channels" id="channels">
+          <li><span class="k">E-mail</span><a class="v" href="mailto:enzosb2004@gmail.com">enzosb2004@gmail.com</a><button class="copy" type="button" data-t="enzosb2004@gmail.com">Copiar</button></li>
+          <li><span class="k">Telefone</span><a class="v" href="tel:+5548998449018">(48) 99844-9018</a><button class="copy" type="button" data-t="(48) 99844-9018">Copiar</button></li>
+          <li><span class="k">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/enzo-de-souza-b%C3%BCndchen-276307260/" target="_blank" rel="noopener">Enzo de Souza Bündchen</a><button class="copy" type="button" data-t="https://www.linkedin.com/in/enzo-de-souza-b%C3%BCndchen-276307260/">Copiar</button></li>
+          <li><span class="k">GitHub</span><a class="v" href="https://github.com/enzobundchen" target="_blank" rel="noopener">github.com/enzobundchen</a><button class="copy" type="button" data-t="https://github.com/enzobundchen">Copiar</button></li>
+          <li><span class="k">Instagram</span><a class="v" href="https://www.instagram.com/1enzosb_/" target="_blank" rel="noopener">@1enzosb_</a><button class="copy" type="button" data-t="@1enzosb_">Copiar</button></li>
+          <li><span class="k">Local</span><span class="v">Araranguá, SC, Brasil</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="end">
+    <div class="wrap"><span>© 2026 Enzo de Souza Bündchen</span><span>Araranguá, SC, Brasil</span></div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
