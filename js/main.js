@@ -8,6 +8,7 @@ const fechaMenu = () => { nav.classList.remove('open'); menu.setAttribute('aria-
 menu.addEventListener('click', () => menu.setAttribute('aria-expanded', nav.classList.toggle('open')));
 nav.addEventListener('click', e => { if (e.target.closest('a')) fechaMenu(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') fechaMenu(); });
+document.addEventListener('click', e => { if (!e.target.closest('.top')) fechaMenu(); });
 
 /* ---------- seção atual no menu ---------- */
 const links = $$('a', nav);
