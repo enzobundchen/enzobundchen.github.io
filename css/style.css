@@ -128,6 +128,34 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(3.4rem,10.5vw,7.6r
   .case--flip .case__media{order:0}
   .phone{right:6px;width:22%;top:26%}
 }
+/* carrossel circular de projetos: os itens giram num anel e o escolhido vem para a frente */
+.orbita{position:relative;margin-top:clamp(28px,4vw,48px);overflow-x:clip;padding-block:1rem clamp(40px,6vw,64px)}
+.orbita__palco{display:grid;justify-items:center;touch-action:pan-y}
+.orbita__item{grid-area:1/1;position:relative;display:block;width:min(62%,760px);text-decoration:none;cursor:pointer;transform-origin:50% 60%;will-change:transform}
+.orbita__item .browser{transition:border-color .25s,box-shadow .25s}
+.orbita__item.ativo .browser{box-shadow:0 30px 70px rgba(0,0,0,.6)}
+.orbita__item.ativo:hover .browser,.orbita__item.ativo:focus-visible .browser{border-color:var(--accent)}
+.orbita__item:not(.ativo) img{filter:grayscale(.6) brightness(.55)}
+.orbita__item img{transition:filter .35s}
+.orbita__dica{position:absolute;left:50%;bottom:-2.6rem;transform:translateX(-50%);white-space:nowrap;font:500 .78rem var(--mono);color:var(--accent);opacity:0;transition:opacity .25s}
+.orbita__item.ativo .orbita__dica{opacity:1}
+.orbita__item:not(a) .orbita__dica{color:var(--muted)}
+div.orbita__item.ativo{cursor:default}
+.orbita__ctrl{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:3.4rem}
+.orbita__seta{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--line2);border-radius:50%;background:var(--bg);transition:border-color .2s}
+.orbita__seta:hover{border-color:var(--ink)}
+.orbita__pontos{display:flex;gap:.2rem}
+.orbita__pontos button{width:28px;height:28px;border:0;background:none;display:grid;place-items:center}
+.orbita__pontos button::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--line2);transition:background .2s,width .2s}
+.orbita__pontos button[aria-current="true"]::before{width:22px;border-radius:4px;background:var(--accent)}
+.orbita__aviso{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+html:not(.js) .orbita__palco{display:grid;gap:2rem;padding-bottom:0}
+html:not(.js) .orbita__item{grid-area:auto;width:100%}
+html:not(.js) .orbita__ctrl,html:not(.js) .orbita__dica{display:none}
+@media (max-width:760px){
+  .orbita__item{width:80%}
+  .orbita__ctrl{margin-top:3.2rem}
+}
 .sub-head{font-family:var(--display);font-weight:800;font-size:1.8rem;padding-top:clamp(32px,5vw,56px);border-top:1px solid var(--line2);margin-bottom:1rem}
 .list li{display:grid;grid-template-columns:2.6rem minmax(0,1fr) minmax(0,10rem) minmax(0,11rem);gap:.4rem 1.2rem;align-items:start;padding:1.15rem .2rem;border-top:1px solid var(--line)}
 .list li:first-child{border-top:0}

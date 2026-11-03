@@ -49,18 +49,101 @@ if (!calmo) $$('[data-count]').forEach(el => {
   requestAnimationFrame(passo);
 });
 
-/* ---------- telas dos projetos ---------- */
-$$('[data-gallery]').forEach(g => {
-  const img = $('[data-main]', g), bts = $$('.thumbs button', g);
-  bts.forEach(b => {
-    new Image().src = b.dataset.src;
-    b.addEventListener('click', () => {
-      img.src = b.dataset.src;
-      img.alt = b.dataset.alt;
-      bts.forEach(x => x.setAttribute('aria-pressed', x === b));
-    });
+/* ---------- carrossel circular de projetos ---------- */
+const palco = $('#palco');
+const orbs = $$('.orbita__item', palco);
+const pontos = $$('.orbita__pontos button');
+const avisoOrb = $('#orbita-aviso');
+const N = orbs.length, PASSO = Math.PI * 2 / N;
+let pos = 0, destino = 0, ativo = 0;
+
+const raio = () => innerWidth <= 760 ? 0.42 : 0.5;
+const posiciona = () => {
+  const R = raio();
+  orbs.forEach((el, i) => {
+    const a = (i - pos) * PASSO;
+    const frente = (Math.cos(a) + 1) / 2;
+    const esc = 0.62 + 0.38 * frente;
+    el.style.transform = `perspective(1400px) translate(${Math.sin(a) * R * 100}%, ${(1 - frente) * -9}%) scale(${esc}) rotateY(${Math.sin(a) * -22}deg)`;
+    el.style.zIndex = Math.round(frente * 10);
+    el.style.opacity = 0.35 + 0.65 * frente;
   });
+};
+const marca = (i, auto) => {
+  ativo = i;
+  orbs.forEach((el, k) => {
+    const sim = k === i;
+    el.classList.toggle('ativo', sim);
+    el.tabIndex = sim ? 0 : -1;
+    el.setAttribute('aria-hidden', !sim);
+  });
+  pontos.forEach((b, k) => k === i ? b.setAttribute('aria-current', 'true') : b.removeAttribute('aria-current'));
+  if (!auto) avisoOrb.textContent = pontos[i].getAttribute('aria-label') + `, projeto ${i + 1} de ${N}`;
+};
+const VOLTA = 7; // segundos que cada projeto leva para passar pela frente
+let sobre = false, focado = false, naTela = false, pausaAte = 0, antesOrb = 0, girando = false;
+const livre = t => !calmo && !sobre && !focado && !document.hidden && t > pausaAte;
+// o anel gira sem parar; com o ponteiro ou o foco em cima, encaixa no projeto mais próximo
+const gira = t => {
+  const dt = antesOrb ? Math.min(t - antesOrb, 50) / 1000 : 0;
+  antesOrb = t;
+  if (livre(t)) destino = pos += dt / VOLTA;
+  else pos += (destino - pos) * (calmo ? 1 : 1 - Math.exp(-dt / 0.12));
+  const frente = ((Math.round(pos) % N) + N) % N;
+  if (frente !== ativo) marca(frente, true);
+  posiciona();
+  if (naTela) requestAnimationFrame(gira); else { girando = false; antesOrb = 0; }
+};
+const segura = () => { destino = Math.round(pos); };
+// vai pelo caminho mais curto do anel e espera um pouco antes de voltar a girar
+const vaiPara = i => {
+  let d = i - ativo;
+  if (d > N / 2) d -= N;
+  if (d < -N / 2) d += N;
+  destino = Math.round(pos) + d;
+  pausaAte = performance.now() + 3000;
+  marca(i);
+};
+
+const orbita = $('#orbita');
+orbita.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { sobre = true; segura(); } });
+orbita.addEventListener('pointerleave', () => { sobre = false; });
+orbita.addEventListener('focusin', () => { focado = true; segura(); });
+orbita.addEventListener('focusout', e => { if (!orbita.contains(e.relatedTarget)) focado = false; });
+new IntersectionObserver(es => {
+  naTela = es[0].isIntersecting;
+  if (naTela && !girando) { girando = true; requestAnimationFrame(gira); }
+}).observe(orbita);
+const anda = d => vaiPara((((ativo + d) % N) + N) % N);
+
+orbs.forEach((el, i) => el.addEventListener('click', e => {
+  if (arrastou) { e.preventDefault(); return; }
+  if (i !== ativo) { e.preventDefault(); vaiPara(i); }
+}));
+pontos.forEach(b => b.addEventListener('click', () => vaiPara(+b.dataset.i)));
+$$('.orbita__seta').forEach(b => b.addEventListener('click', () => anda(+b.dataset.passo)));
+orbita.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') { e.preventDefault(); anda(-1); }
+  if (e.key === 'ArrowRight') { e.preventDefault(); anda(1); }
 });
+
+// arrastar para o lado também gira
+let x0 = null, arrastou = false;
+palco.addEventListener('pointerdown', e => { x0 = e.clientX; arrastou = false; });
+palco.addEventListener('pointermove', e => { if (x0 !== null && Math.abs(e.clientX - x0) > 10) arrastou = true; });
+palco.addEventListener('pointerup', e => {
+  if (x0 === null) return;
+  const dx = e.clientX - x0;
+  x0 = null;
+  if (Math.abs(dx) > 40) anda(dx < 0 ? 1 : -1);
+  setTimeout(() => { arrastou = false; });
+});
+palco.addEventListener('pointercancel', () => { x0 = null; arrastou = false; });
+palco.addEventListener('dragstart', e => e.preventDefault());
+
+addEventListener('resize', posiciona);
+marca(0, true);
+posiciona();
 
 /* ---------- fluxo ---------- */
 const FLOW = [
