@@ -51,10 +51,17 @@ if (!calmo) $$('[data-count]').forEach(el => {
 
 /* ---------- carrossel circular de projetos ---------- */
 const palco = $('#palco');
+// com menos de três projetos o anel fica vazio atrás; repete os itens para fechar a volta
+const reais = $$('.orbita__item', palco);
+if (reais.length < 3) reais.forEach(el => {
+  const c = el.cloneNode(true);
+  c.removeAttribute('id');
+  palco.append(c);
+});
 const orbs = $$('.orbita__item', palco);
 const pontos = $$('.orbita__pontos button');
 const avisoOrb = $('#orbita-aviso');
-const N = orbs.length, PASSO = Math.PI * 2 / N;
+const N = orbs.length, R0 = reais.length, PASSO = Math.PI * 2 / N;
 let pos = 0, destino = 0, ativo = 0;
 
 const raio = () => innerWidth <= 760 ? 0.42 : 0.5;
@@ -77,8 +84,9 @@ const marca = (i, auto) => {
     el.tabIndex = sim ? 0 : -1;
     el.setAttribute('aria-hidden', !sim);
   });
-  pontos.forEach((b, k) => k === i ? b.setAttribute('aria-current', 'true') : b.removeAttribute('aria-current'));
-  if (!auto) avisoOrb.textContent = pontos[i].getAttribute('aria-label') + `, projeto ${i + 1} de ${N}`;
+  const p = i % R0;
+  pontos.forEach((b, k) => k === p ? b.setAttribute('aria-current', 'true') : b.removeAttribute('aria-current'));
+  if (!auto) avisoOrb.textContent = pontos[p].getAttribute('aria-label') + `, projeto ${p + 1} de ${R0}`;
 };
 const VOLTA = 7; // segundos que cada projeto leva para passar pela frente
 let sobre = false, focado = false, naTela = false, pausaAte = 0, antesOrb = 0, girando = false;
@@ -120,7 +128,14 @@ orbs.forEach((el, i) => el.addEventListener('click', e => {
   if (arrastou) { e.preventDefault(); return; }
   if (i !== ativo) { e.preventDefault(); vaiPara(i); }
 }));
-pontos.forEach(b => b.addEventListener('click', () => vaiPara(+b.dataset.i)));
+// o ponto leva à cópia do projeto que estiver mais perto no anel
+const volta = d => Math.abs(((d % N) + N + N / 2) % N - N / 2);
+const perto = r => {
+  let melhor = r;
+  for (let k = r; k < N; k += R0) if (volta(k - ativo) < volta(melhor - ativo)) melhor = k;
+  return melhor;
+};
+pontos.forEach(b => b.addEventListener('click', () => vaiPara(perto(+b.dataset.i))));
 $$('.orbita__seta').forEach(b => b.addEventListener('click', () => anda(+b.dataset.passo)));
 orbita.addEventListener('keydown', e => {
   if (e.key === 'ArrowLeft') { e.preventDefault(); anda(-1); }
